@@ -2,6 +2,7 @@ import io
 import time
 import picamera
 from base_camera import BaseCamera
+from facial_recognition import processImage
 
 
 class Camera(BaseCamera):
@@ -16,7 +17,11 @@ class Camera(BaseCamera):
                                                  use_video_port=True):
                 # return current frame
                 stream.seek(0)
-                yield stream.read()
+                image = stream.read()
+                yield image
+
+                # process the frame
+                processImage(image)
 
                 # reset stream for next frame
                 stream.seek(0)

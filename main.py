@@ -1,6 +1,8 @@
 from flask import Flask, render_template, Response
 from camera_pi import Camera
 
+
+app = Flask(__name__)
 """ Helper Methods """
 def gen(camera):
     while True:

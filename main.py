@@ -1,8 +1,9 @@
 from flask import Flask, render_template, Response
-from camera_pi import Camera
+# from camera_pi import Camera
+from openCVCamera import OpenCVCamera
 
 """ Helper Methods """
-def gen():
+def gen(camera):
     while True:
         frame = camera.get_frame()
         yield (b'--frame\r\n'
@@ -18,7 +19,10 @@ def index():
 @app.route('/stream')
 def stream():
     """ Video streaming route. Put this in the src attribute of an img tag. """
-    return Response(gen(Camera()),
+    #return Response(gen(Camera()),
+    #                mimetype='multipart/x-mixed-replace; boundary=frame')
+
+    return Response(gen(OpenCVCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 

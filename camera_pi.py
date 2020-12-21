@@ -17,11 +17,10 @@ class Camera(BaseCamera):
                                                  use_video_port=True):
                 # return current frame
                 stream.seek(0)
-                image = stream.read()
-                yield image
+                yield stream.read()
 
                 # process the frame
-                processImage(image)
+                # processImage(image)
 
                 # reset stream for next frame
                 stream.seek(0)

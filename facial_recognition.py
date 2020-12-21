@@ -1,4 +1,4 @@
-import facial_recognition as f
+import face_recognition as f
 
 def processImage(img):
     image = f.load_image(img)

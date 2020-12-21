@@ -20,7 +20,6 @@ class OpenCVCamera(object):
             face_locations = face_recognition.face_locations(RGB_resizedFrame)
             print(f"There are {len(face_locations)} faces in this frame!")
 
-        
         # Convert the image to a JPEG
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()

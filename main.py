@@ -1,6 +1,5 @@
 from flask import Flask, render_template, Response
-# from camera_pi import Camera
-from openCVCamera import OpenCVCamera
+from camera_pi import Camera
 
 """ Helper Methods """
 def gen(camera):

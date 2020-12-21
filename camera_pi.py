@@ -2,8 +2,6 @@ import io
 import time
 import picamera
 from base_camera import BaseCamera
-from facial_recognition import processImage
-
 
 class Camera(BaseCamera):
     @staticmethod
@@ -20,7 +18,6 @@ class Camera(BaseCamera):
                 yield stream.read()
 
                 # process the frame
-                # processImage(image)
 
                 # reset stream for next frame
                 stream.seek(0)

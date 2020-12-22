@@ -17,8 +17,6 @@ class Camera(BaseCamera):
                 stream.seek(0)
                 yield stream.read()
 
-                # process the frame
-
                 # reset stream for next frame
                 stream.seek(0)
                 stream.truncate()

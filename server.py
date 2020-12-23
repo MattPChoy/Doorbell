@@ -9,13 +9,16 @@ print(f"Socket hostname: {socket.gethostname()}")
 
 server_socket = socket.socket()
 print("Socket object created")
-server_socket.bind(('0.0.0.0', 8000))
+# server_socket.bind(('0.0.0.0', 8000))
+server_socket.bind(('192.168.1.42', 8000))
 print("Server socket bound")
 server_socket.listen(0)
 print("Socket listening")
 
 # Accept a single connection and make a file-like object out of it
-connection = server_socket.accept()[0].makefile('rb')
+# connection = server_socket.accept()[0].makefile('rb')
+connection = server_socket.accept()
+print("Connected")
 try:
     while True:
         print(".")

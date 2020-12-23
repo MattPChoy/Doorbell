@@ -8,13 +8,17 @@ from PIL import Image
 print(f"Socket hostname: {socket.gethostname()}")
 
 server_socket = socket.socket()
+print("Socket object created")
 server_socket.bind(('0.0.0.0', 8000))
+print("Server socket bound")
 server_socket.listen(0)
+print("Socket listening")
 
 # Accept a single connection and make a file-like object out of it
 connection = server_socket.accept()[0].makefile('rb')
 try:
     while True:
+        print(".")
         # Read the ength of the image as a 32-bit unsigned int.
         # If the length is 0 (stopped transmitting), exit out of the loop
 
